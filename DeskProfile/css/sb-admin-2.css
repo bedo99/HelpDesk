@@ -9619,17 +9619,18 @@ a.text-danger:hover, a.text-danger:focus {
   color: #be2617 !important;
 }
 
-.text-light {
-  color: #f8f9fc !important;
+.text-dark {
+  color: #000000 !important;
+}
+
+.text-verify {
+  color: #d5d81d !important;
 }
 
 a.text-light:hover, a.text-light:focus {
   color: #c2cbe5 !important;
 }
 
-.text-dark {
-  color: #5a5c69 !important;
-}
 
 a.text-dark:hover, a.text-dark:focus {
   color: #373840 !important;
@@ -10022,6 +10023,14 @@ a:focus {
   border-bottom: 0.25rem solid #4e73df !important;
 }
 
+.border-left-verify {
+  border-left: 0.25rem solid #fffc58 !important;
+}
+
+.border-bottom-verify {
+  border-bottom: 0.25rem solid #fffc58 !important;
+}
+
 .border-left-secondary {
   border-left: 0.25rem solid #858796 !important;
 }
@@ -10031,11 +10040,11 @@ a:focus {
 }
 
 .border-left-success {
-  border-left: 0.25rem solid #1cc88a !important;
+  border-left: 0.25rem solid #00FF00 !important;
 }
 
 .border-bottom-success {
-  border-bottom: 0.25rem solid #1cc88a !important;
+  border-bottom: 0.25rem solid #00FF00 !important;
 }
 
 .border-left-info {
@@ -10062,12 +10071,12 @@ a:focus {
   border-bottom: 0.25rem solid #e74a3b !important;
 }
 
-.border-left-light {
-  border-left: 0.25rem solid #f8f9fc !important;
+.border-left-dark {
+  border-left: 0.25rem solid #000000 !important;
 }
 
-.border-bottom-light {
-  border-bottom: 0.25rem solid #f8f9fc !important;
+.border-bottom-dark {
+  border-bottom: 0.25rem solid #000000 !important;
 }
 
 .border-left-dark {

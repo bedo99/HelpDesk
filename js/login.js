@@ -14,7 +14,7 @@ const formaingresar =  document.getElementById('sign-in-form');
 
 formaingresar.addEventListener('submit',(e)=>{
     e.preventDefault();
-    
+    return window.document.location = 'DeskProfile/Admin.html';
     /*let correo = formaingresar['correo'].value;
     let contrasena = formaingresar['contrasena'].value;
 
