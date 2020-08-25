@@ -22,6 +22,7 @@
 
   <!-- Custom styles for this template-->
   <link href="css/sb-admin-2.css" rel="stylesheet">
+  <link rel="stylesheet" href="../css/TicketDescription.css" />
 
 </head>
 
@@ -165,197 +166,139 @@
         <!-- Begin Page Content -->
         <div class="container-fluid">
 
-          <!-- Page Heading -->
-          <div class="d-sm-flex align-items-center justify-content-between mb-4">
-            <h1 class="h3 mb-0 text-gray-800">Tickets</h1>
-            <a href="#" class="d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-download fa-sm text-white-50"></i> Generate Report</a>
-          </div>
-
-          <!-- Content Row -->
-          <div class="row">
-
-            <!-- Pendiente Card -->
-            <div class="col-xl-3 col-md-6 mb-4">
-              <div class="card border-left-primary shadow h-100 py-2">
-                <div class="card-body">
-                  <div class="row no-gutters align-items-center">
-                    <div class="col mr-2">
-                      <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Pendiente</div>
-                      <div class="h5 mb-0 font-weight-bold text-gray-800">30</div>
-                    </div>
-                    <div class="col-auto">
-                      <i class="fas fa-clipboard-list fa-2x text-gray-300"></i>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <!-- Abierto Card -->
-            <div class="col-xl-3 col-md-6 mb-4">
-              <div class="card border-left-success shadow h-100 py-2">
-                <div class="card-body">
-                  <div class="row no-gutters align-items-center">
-                    <div class="col mr-2">
-                      <div class="text-xs font-weight-bold text-success text-uppercase mb-1">Abierto</div>
-                      <div class="h5 mb-0 font-weight-bold text-gray-800">15</div>
-                    </div>
-                    <div class="col-auto">
-                      <i class="fas fa-clipboard-list fa-2x text-gray-300"></i>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <!-- En Proceso Card -->
-            <div class="col-xl-3 col-md-6 mb-4">
-              <div class="card border-left-warning shadow h-100 py-2">
-                <div class="card-body">
-                  <div class="row no-gutters align-items-center">
-                    <div class="col mr-2">
-                      <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">En Proceso</div>
-                      <div class="h5 mb-0 font-weight-bold text-gray-800">18</div>
-                    </div>
-                    <div class="col-auto">
-                      <i class="fas fa-clipboard-list fa-2x text-gray-300"></i>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <!-- Finalizado Card -->
-            <div class="col-xl-3 col-md-6 mb-4">
-              <div class="card border-left-danger shadow h-100 py-2">
-                <div class="card-body">
-                  <div class="row no-gutters align-items-center">
-                    <div class="col mr-2">
-                      <div class="text-xs font-weight-bold text-danger text-uppercase mb-1">Finalizado</div>
-                      <div class="h5 mb-0 font-weight-bold text-gray-800">18</div>
-                    </div>
-                    <div class="col-auto">
-                      <i class="fas fa-clipboard-list fa-2x text-gray-300"></i>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <!-- Verificado Card -->
-            <div class="col-xl-3 col-md-6 mb-4">
-              <div class="card border-left-verify shadow h-100 py-2">
-                <div class="card-body">
-                  <div class="row no-gutters align-items-center">
-                    <div class="col mr-2">
-                      <div class="text-xs font-weight-bold text-verify text-uppercase mb-1">Verificado</div>
-                      <div class="h5 mb-0 font-weight-bold text-gray-800">18</div>
-                    </div>
-                    <div class="col-auto">
-                      <i class="fas fa-clipboard-list fa-2x text-gray-300"></i>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <!-- Terminado Card -->
-            <div class="col-xl-3 col-md-6 mb-4">
-              <div class="card border-left-dark shadow h-100 py-2">
-                <div class="card-body">
-                  <div class="row no-gutters align-items-center">
-                    <div class="col mr-2">
-                      <div class="text-xs font-weight-bold text-dark text-uppercase mb-1">Terminado</div>
-                      <div class="h5 mb-0 font-weight-bold text-gray-800">18</div>
-                    </div>
-                    <div class="col-auto">
-                      <i class="fas fa-clipboard-list fa-2x text-gray-300"></i>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          
-
-
-
-
-
+            <section id="cd-timeline" class="cd-container">
+                <div class="cd-timeline-block">
+                    <div class="cd-timeline-img cd-picture">
+                        <img src="../img/calendario.svg" alt="Calendario">
+                    </div> <!-- cd-timeline-img -->
+        
+                    <div class="cd-timeline-content">
+                        <h2>Fecha de Creacion</h2>
+                        <span class="cd-date">15/02/2020</span>
+                    </div> <!-- cd-timeline-content -->
+                </div> <!-- cd-timeline-block -->
+                <div class="cd-timeline-block">
+                    <div class="cd-timeline-img cd-picture">
+                        <img src="../img/titulo.svg" alt="Titulo">
+                    </div> <!-- cd-timeline-img -->
+        
+                    <div class="cd-timeline-content">
+                        <h2>Titulo</h2>
+                        <p>Tarea 1 celular</p>
+                    </div> <!-- cd-timeline-content -->
+                </div> <!-- cd-timeline-block -->
+        
+                <div class="cd-timeline-block">
+                    <div class="cd-timeline-img cd-movie">
+                        <img src="../img/Descripcion.svg" alt="Movie">
+                    </div> <!-- cd-timeline-img -->
+        
+                    <div class="cd-timeline-content">
+                        <h2>Descripcion</h2>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iusto, optio, dolorum provident rerum aut hic quasi placeat iure tempora laudantium ipsa ad debitis unde?</p>
+                    </div> <!-- cd-timeline-content -->
+                </div> <!-- cd-timeline-block -->
+        
+                <div class="cd-timeline-block">
+                    <div class="cd-timeline-img cd-picture">
+                        <img src="../img/adjuntar.svg" alt="Picture">
+                    </div> <!-- cd-timeline-img -->
+        
+                    <div class="cd-timeline-content">
+                        <h2>Adjuntos</h2>
+                    </div> <!-- cd-timeline-content -->
+                </div> <!-- cd-timeline-block -->
+        
+                <div class="cd-timeline-block">
+                    <div class="cd-timeline-img cd-location">
+                        <img src="../img/categoria.svg" alt="Location">
+                    </div> <!-- cd-timeline-img -->
+        
+                    <div class="cd-timeline-content">
+                        <h2>Categoria</h2>
+                        <div class="dropdown">
+                            <button class="btn btn-outline-secondary dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                              Pendiente
+                            </button>
+                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                              <a class="dropdown-item text-primary" href="#">Pendiente</a>
+                              <a class="dropdown-item text-success" href="#">Abierto</a>
+                              <a class="dropdown-item text-warning" href="#">En Proceso</a>
+                              <a class="dropdown-item text-danger" href="#">Finalizado</a>
+                              <a class="dropdown-item text-verify" href="#">Verificado</a>
+                              <a class="dropdown-item text-dark" href="#">Terminado</a>
+                            </div>
+                        </div>
+                        <hr>
+                        <h2>SubCategoria</h2>
+                        <div class="dropdown">
+                            <button class="btn btn-outline-secondary dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                              Pendiente
+                            </button>
+                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                              <a class="dropdown-item text-primary" href="#">Pendiente</a>
+                              <a class="dropdown-item text-success" href="#">Abierto</a>
+                              <a class="dropdown-item text-warning" href="#">En Proceso</a>
+                              <a class="dropdown-item text-danger" href="#">Finalizado</a>
+                              <a class="dropdown-item text-verify" href="#">Verificado</a>
+                              <a class="dropdown-item text-dark" href="#">Terminado</a>
+                            </div>
+                        </div>
+                    </div> <!-- cd-timeline-content -->
+                </div> <!-- cd-timeline-block -->
+        
+                <div class="cd-timeline-block">
+                    <div class="cd-timeline-img cd-location">
+                        <img src="../img/Especialista.svg" alt="Location">
+                    </div> <!-- cd-timeline-img -->
+        
+                    <div class="cd-timeline-content">
+                        <h2>Especialista</h2>
+                        <div class="dropdown">
+                            <button class="btn btn-outline-secondary dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                              Pendiente
+                            </button>
+                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                              <a class="dropdown-item " href="#">Nombre Fulano</a>
+                              <a class="dropdown-item " href="#">Nombre Fulano</a>
+                              <a class="dropdown-item " href="#">Nombre Fulano</a>
+                              <a class="dropdown-item " href="#">Nombre Fulano</a>
+                              <a class="dropdown-item " href="#">Nombre Fulano</a>
+                              <a class="dropdown-item " href="#">Nombre Fulano</a>
+                            </div>
+                        </div>
+                    </div> <!-- cd-timeline-content -->
+                </div> <!-- cd-timeline-block -->
+        
+                <div class="cd-timeline-block">
+                    <div class="cd-timeline-img cd-movie">
+                        <img src="../img/Estatus.svg" alt="Movie" >
+                    </div> <!-- cd-timeline-img -->
+        
+                    <div class="cd-timeline-content">
+                        <h2>Estatus</h2>
+                        <h5>Pendiente</h5>
+                        <span class="cd-date">Feb 26</span>
+                    </div> <!-- cd-timeline-content -->
+                </div> <!-- cd-timeline-block -->
 
 
-          <div class="card shadow mb-4">
-            <div class="card-header py-3">
-              <h6 class="m-0 font-weight-bold text-primary">Tickets</h6>
-            </div>
-            <div class="card-body">
-              <div class="table-responsive">
-                <table class="table table-bordered" id="dataTableAdmin" width="100%" cellspacing="0">
-                  <thead>
-                    <tr>
-                      <th>id</th>
-                      <th>Nombre Solicitante</th>
-                      <th>Nombre Especialista</th>
-                      <th>Tarea</th>
-                      <th>Departamento</th>
-                      <th>Categoria</th>
-                      <th>Estatus</th>
-                    </tr>
-                  </thead>
-                  <tfoot>
-                    <tr>
-                      <th>id</th>
-                      <th>Nombre Solicitante</th>
-                      <th>Nombre Especialista</th>
-                      <th>Tarea</th>
-                      <th>Departamento</th>
-                      <th>Categoria</th>
-                      <th>Estatus</th>
-                    </tr>
-                  </tfoot>
-                  <tbody>
-                    <tr>
-                      <td>1</td>
-                      <td>Tiger Nixon</td>
-                      <td>Sin Asignar</td>
-                      <td>System Architect</td>
-                      <td>Edinburgh</td>
-                      <td>Sin Categorizar</td>
-                      <td>Pendiente</td>
-                      
-                    </tr>
-                    <tr>
-                      <td>2</td>
-                      <td>Garrett Winters</td>
-                      <td>Sin Asignar</td>
-                      <td>Accountant</td>
-                      <td>Tokyo</td>
-                      <td>Sin Categorizar</td>
-                      <td>Pendiente</td>
-                    </tr>
-                    <tr>
-                      <td>3</td>
-                      <td>Ashton Cox</td>
-                      <td>Sin Asignar</td>
-                      <td>Junior Technical Author</td>
-                      <td>San Francisco</td>
-                      <td>Sin Categorizar</td>
-                      <td>Pendiente</td>
-                    </tr>
-                    <tr>
-                      <td>4</td>
-                      <td>Donna Snider</td>
-                      <td>Sin Asignar</td>
-                      <td>Customer Support</td>
-                      <td>New York</td>
-                      <td>Sin Categorizar</td>
-                      <td>Pendiente</td>
-                    </tr>
-                  </tbody>
-                </table>
-              </div>
-            </div>
-          </div>
+                <div class="cd-timeline-block">
+                  <div class="cd-timeline-img ">
+                    <a href="#" class="btn btn-success btn-circle btn-lg">
+                      <i class="fas fa-check"></i>
+                    </a>
+                  </div> <!-- cd-timeline-img -->
+      
+                  <div class="cd-timeline-content">
+                      <h2>¿ Aplicar Cambios ?</h2>
+                  </div> <!-- cd-timeline-content -->
+              </div> <!-- cd-timeline-block -->
+
+
+            
+
+            </section> <!-- cd-timeline -->
 
         </div>
         <!-- /.container-fluid -->
@@ -412,6 +355,7 @@
 
   <!-- Custom scripts for all pages-->
   <script src="js/sb-admin-2.js"></script>
+  
 
 
 </body>
