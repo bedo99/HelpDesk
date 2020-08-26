@@ -14,3 +14,7 @@ var firebaseConfig = {
   
   const auth = firebase.auth();
   const db = firebase.firestore();
+
+const salir = document.getElementById('salir');
+
+

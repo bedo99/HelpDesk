@@ -1,11 +1,14 @@
 auth.onAuthStateChanged( user =>{
 
     if(user){
-        console.log('Usuario entró');
+        
+        localStorage.setItem("idU",user.uid);
+        
 
         db.collection('Tickets').onSnapshot(snapshot =>{
             obtieneTickets(snapshot.docs);
-            //configuraMenu(user);
+            //console.log(snapshot.docs);
+            //configuraMenu(user);IdUsuarioEspecialista
         }, err => {
             console.log(err.message);
         });
@@ -22,63 +25,201 @@ auth.onAuthStateChanged( user =>{
 const ListaTicketsCard = document.getElementById('ListaTicketsCard');
 
 const obtieneTickets = (data) =>{
-
-
+    
+    
     if(data.length){
-        
-        let html = '';
 
-        data.forEach(doc => {
-            const producto = doc.data();
-            const columna = `
-            <div class="col-12 col-md-6 col-lg-4 mt-5" data-aos="fade-up" data-aos-duration='2000'>
-                <div class="card">
-                    <div class="card-head">
-                        <div class="row">
-                        <img src="./img/logotipoBlanco.png" alt="logo" class="card-logo">
-                        <h2>${producto.Nombre}</h2>
-                        </div>
-                        <img src="${producto.imagen}" alt="Imagen" class="product-img">
+        let html = '';
+        const id = localStorage.getItem("idU");
+
+        var contadorP = 0;
+        var contadorA = 0;
+        var contadorE = 0;
+        var contadorF = 0;
+        var contadorV = 0;
+        var contadorT = 0;
+
+        data.forEach(ticket => {
+            if(ticket.data().IdUsuarioEspecialista == id){
+                if(ticket.data().Estatus == 0){
+                    contadorP++;
+                }
+                else if(ticket.data().Estatus == 1){
+                    contadorA++;
+                }
+                else if(ticket.data().Estatus == 2){
+                    contadorE++;
+                }
+                else if(ticket.data().Estatus == 3){
+                    contadorF++;
+                }
+                else if(ticket.data().Estatus == 4){
+                    contadorV++;
+                }
+                else if(ticket.data().Estatus == 5){
+                    contadorT++;
+                }
+            }
+        });
+        
+        if(contadorP != 0){
+            const CardP = 
+            `
+            <div class="col-xl-3 col-md-6 mb-4">
+              <div class="card border-left-primary shadow h-100 py-2">
+                <div class="card-body">
+                  <div class="row no-gutters align-items-center">
+                    <div class="col mr-2">
+                      <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Pendiente</div>
+                      <div class="h5 mb-0 font-weight-bold text-gray-800">${contadorP}</div>
                     </div>
-                    <div class="card-body">
-                        <span class="new">New</span>
-                            <div class="container">
-                                <p class="product-des">
-                                    ${producto.descripcion}
-                                </p>
-                            </div>
-                            <span class="product-rating">
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star grey"></i>
-                            </span>
-                        <div class="row">
-                            <div class="col-7 mt-3" style="text-align: center;">
-                                <p class="product-price">
-                                MX<b>${producto.precio}</b>
-                                </p>
-                            </div>
-                            <div class="col-5 mt-3">
-                                <button id="boton" onclick="addToCart('${doc.id}', '${producto.nombre}',
-                                '${producto.descripcion}', '${producto.imagen}', '${producto.precio}')">
-                                    Add to cart
-                                </button>
-                            </div>
-                        </div>
+                    <div class="col-auto">
+                      <i class="fas fa-clipboard-list fa-2x text-gray-300"></i>
                     </div>
+                  </div>
                 </div>
+              </div>
             </div>
             `;
-            html += columna;
-    
-        });
-    
+            html += CardP;
+        }
+        if(contadorA != 0){
+            const CardA = 
+            `
+            <div class="col-xl-3 col-md-6 mb-4">
+              <div class="card border-left-success shadow h-100 py-2">
+                <div class="card-body">
+                  <div class="row no-gutters align-items-center">
+                    <div class="col mr-2">
+                      <div class="text-xs font-weight-bold text-success text-uppercase mb-1">Abierto</div>
+                      <div class="h5 mb-0 font-weight-bold text-gray-800">${contadorA}</div>
+                    </div>
+                    <div class="col-auto">
+                      <i class="fas fa-clipboard-list fa-2x text-gray-300"></i>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            `;
+            html += CardA;
+        }
+        if(contadorE != 0){
+            const CardE = 
+            `
+            <div class="col-xl-3 col-md-6 mb-4">
+              <div class="card border-left-warning shadow h-100 py-2">
+                <div class="card-body">
+                  <div class="row no-gutters align-items-center">
+                    <div class="col mr-2">
+                      <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">En Proceso</div>
+                      <div class="h5 mb-0 font-weight-bold text-gray-800">${contadorE}</div>
+                    </div>
+                    <div class="col-auto">
+                      <i class="fas fa-clipboard-list fa-2x text-gray-300"></i>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            `;
+            html += CardE;
+        }
+        if(contadorF != 0){
+            const CardF = 
+            `
+            <div class="col-xl-3 col-md-6 mb-4">
+              <div class="card border-left-danger shadow h-100 py-2">
+                <div class="card-body">
+                  <div class="row no-gutters align-items-center">
+                    <div class="col mr-2">
+                      <div class="text-xs font-weight-bold text-danger text-uppercase mb-1">Finalizado</div>
+                      <div class="h5 mb-0 font-weight-bold text-gray-800">${contadorF}</div>
+                    </div>
+                    <div class="col-auto">
+                      <i class="fas fa-clipboard-list fa-2x text-gray-300"></i>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            `;
+            html += CardF;
+        }
+        if(contadorV != 0){
+            const CardV = 
+            `
+            <div class="col-xl-3 col-md-6 mb-4">
+              <div class="card border-left-verify shadow h-100 py-2">
+                <div class="card-body">
+                  <div class="row no-gutters align-items-center">
+                    <div class="col mr-2">
+                      <div class="text-xs font-weight-bold text-verify text-uppercase mb-1">Verificado</div>
+                      <div class="h5 mb-0 font-weight-bold text-gray-800">${contadorV}</div>
+                    </div>
+                    <div class="col-auto">
+                      <i class="fas fa-clipboard-list fa-2x text-gray-300"></i>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            `;
+            html += CardV;
+        }
+        if(contadorT != 0){
+            const CardT = 
+            `
+            <div class="col-xl-3 col-md-6 mb-4">
+              <div class="card border-left-dark shadow h-100 py-2">
+                <div class="card-body">
+                  <div class="row no-gutters align-items-center">
+                    <div class="col mr-2">
+                      <div class="text-xs font-weight-bold text-dark text-uppercase mb-1">Terminado</div>
+                      <div class="h5 mb-0 font-weight-bold text-gray-800">${contadorT}</div>
+                    </div>
+                    <div class="col-auto">
+                      <i class="fas fa-clipboard-list fa-2x text-gray-300"></i>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            `;
+            html += CardT;
+        }
+
         ListaTicketsCard.innerHTML = html;
 
     }
     else{
-        ListaTicketsCard.innerHTML = '<p class="text-center">Ingrese con sus claves para ver los productos.</p>';
+        const No = 
+            `
+            <div class="col-xl-3 col-md-6 mb-4">
+              <div class="card border-left-dark shadow h-100 py-2">
+                <div class="card-body">
+                  <div class="row no-gutters align-items-center">
+                    <div class="col mr-2">
+                      <div class="text-xs font-weight-bold text-dark text-uppercase mb-1">No Tienes Asignados</div>
+                      <div class="h5 mb-0 font-weight-bold text-gray-800"></div>
+                    </div>
+                    <div class="col-auto">
+                      <i class="fas fa-clipboard-list fa-2x text-gray-300"></i>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            `;
+        ListaTicketsCard.innerHTML = No; 
     }
  };
+
+ salir.addEventListener('click', (e)=>{
+    e.preventDefault();
+    auth.signOut().then(()=>{
+        localStorage.clear();
+        return window.document.location = '../index.html';
+    });
+
+});
