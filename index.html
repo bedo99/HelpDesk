@@ -24,12 +24,12 @@
 
               <h2 class="title">Bienvenido</h2>
               <div class="input-field">
-                <i class="fas fa-user"></i>
-                <input type="text" placeholder="Username" />
+                <i class="fas fa-envelope"></i>
+                <input type="text" id="correo" placeholder="Correo" />
               </div>
               <div class="input-field">
                 <i class="fas fa-lock"></i>
-                <input type="password" placeholder="Password" />
+                <input type="password" id="password" placeholder="Contraseña" />
               </div>
               <input type="submit" value="Entrar" class="btn solid" />
 
@@ -44,23 +44,23 @@
 
             </form>
 
-            <form action="#" class="sign-up-form">
+            <form action="#" id="sign-up-form" class="sign-up-form">
               <h2 class="title">Forma parte de nosotros</h2>
               <div class="input-field">
                 <i class="fas fa-user"></i>
-                <input type="text" placeholder="Nombre Empresarial" />
+                <input type="text" id="rnombre" placeholder="Nombre Empresarial" />
               </div>
               <div class="input-field">
                 <i class="fas fa-envelope"></i>
-                <input type="email" placeholder="Email" />
+                <input type="email" id="remail" placeholder="Email" />
               </div>
               <div class="input-field">
                 <i class="fas fa-phone"></i>
-                <input type="number" placeholder="telefono" />
+                <input type="number" id="rtelefono" placeholder="telefono" />
               </div>
               <div class="input-field">
                 <i class="fas fa-lock"></i>
-                <input type="text" placeholder="Password" />
+                <input type="text" id="rpassword" placeholder="Password" />
               </div>
               
               <input type="submit" class="btn" value="Registrame" />
@@ -104,7 +104,19 @@
           </div>
         </div>
       </div>
+
+      <!-- The core Firebase JS SDK is always required and must be listed first -->
+      <script src="https://www.gstatic.com/firebasejs/7.14.2/firebase-app.js"></script>
+      <script src="https://www.gstatic.com/firebasejs/7.14.2/firebase-auth.js"></script>
+      <script src="https://www.gstatic.com/firebasejs/7.14.2/firebase-firestore.js"></script>
+
+      <!-- TODO: Add SDKs for Firebase products that you want to use
+      https://firebase.google.com/docs/web/setup#available-libraries
+      <script src="https://www.gstatic.com/firebasejs/7.19.0/firebase-analytics.js"></script> -->
+      
   
+      
+      <script src="js/Constantes.js"></script>
       <script src="js/login.js"></script>
 
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
