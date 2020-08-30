@@ -132,6 +132,8 @@
                     <div class="animate__animated animate__fadeInRight cd-timeline-content">
                         <h2>Titulo</h2>
                         <p id="tituloticket"></p>
+                        <h2>Nombre del Solicitante</h2>
+                        <p id="NombreSolicitante"></p>
                     </div> <!-- cd-timeline-content -->
                 </div> <!-- cd-timeline-block -->
         
@@ -164,17 +166,13 @@
         
                     <div class=" animate__animated animate__fadeInLeft cd-timeline-content" style="z-index: 2;">
                         <h2>Estatus</h2>
-                        <div class="dropdown">
-                            <button class="text-success btn btn-outline-secondary dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                              Abierto
-                            </button>
-                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                              <a class="dropdown-item text-success" href="#">Abierto</a>
-                              <a class="dropdown-item text-warning" href="#">En Proceso</a>
-                              <a class="dropdown-item text-danger" href="#">Finalizado</a>
-                              <a class="dropdown-item text-verify" href="#">Verificado</a>
-                              <a class="dropdown-item text-dark" href="#">Terminado</a>
-                            </div>
+                        <div class="dropdown" >
+                          <button id="dropdownMenuButton"  class="btn btn-secondary dropdown-toggle" type="button"  data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                           
+                          </button>
+                          <div id="DropDown" class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                            
+                          </div>
                         </div>
                     </div> <!-- cd-timeline-content -->
                 </div> <!-- cd-timeline-block -->
@@ -182,7 +180,7 @@
 
                 <div class="cd-timeline-block">
                   <div class="cd-timeline-img ">
-                    <a href="#" class="btn btn-success btn-circle btn-lg">
+                    <a id="btnCambios" class="btn btn-success btn-circle btn-lg">
                       <i class="fas fa-check"></i>
                     </a>
                   </div> <!-- cd-timeline-img -->
@@ -242,6 +240,9 @@
       </div>
     </div>
   </div>
+
+  
+<!--Modal: modalConfirmDelete-->
 
   <!-- The core Firebase JS SDK is always required and must be listed first -->
   <script src="https://www.gstatic.com/firebasejs/7.14.2/firebase-app.js"></script>

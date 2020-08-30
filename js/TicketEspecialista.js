@@ -1,34 +1,35 @@
+const usuario = document.querySelector('#CorreoEspecialista');
+const ListaTicketsCard = document.querySelector('#ListaTicketsCard');
+const rowsTabla = document.querySelector('#dataTableEspecialista');
+
 auth.onAuthStateChanged( user =>{
 
     if(user){
         
-
         localStorage.setItem("idU",user.uid);
-        const usuario = document.getElementById('CorreoEspecialista');
         usuario.innerHTML = user.email;
-        
 
-        db.collection('Tickets').where("IdUsuarioEspecialista", "==", localStorage.getItem("idU"))
-        .onSnapshot(snapshot =>{
-            obtieneTickets(snapshot.docs);
-
-        }, err => {
-            console.log(err.message);
+        db.collection('Tickets').where('IdUsuarioEspecialista', '==', localStorage.getItem("idU"))
+        .get()
+        .then((querySnapshot) => {
+          obtieneTickets(querySnapshot.docs);
+        })
+        .catch((error) => {
+          console.log("Error getting documents: ", error);
         });
 
     }
     else{
         console.log('Usuario salió');
         obtieneTickets([]);
-        //configuraMenu();
     }
 
 });
 
-const ListaTicketsCard = document.getElementById('ListaTicketsCard');
-var rowsTabla = document.getElementById("dataTableEspecialista");
+
 var mistorage = window.localStorage;
 console.log(mistorage);
+
 const obtieneTickets = (data) =>{
     
     
@@ -45,36 +46,38 @@ const obtieneTickets = (data) =>{
         var contadorT = 0;
         
         data.forEach(ticket => {
-            
-                if(ticket.data().Estatus == 0){
+
+                switch(ticket.data().Estatus){
+                  case 0:
                     contadorP++;
                     Estatusword = '<td class="text-primary">Pendiente</td>';
-                }
-                else if(ticket.data().Estatus == 1){
+                    break;
+                  case 1:
                     contadorA++;
                     Estatusword = '<td class="text-success">Abierto</td>';
-                }
-                else if(ticket.data().Estatus == 2){
+                    break;
+                  case 2:
                     contadorE++;
                     Estatusword = '<td class="text-warning">En Proceso</td>';
-                }
-                else if(ticket.data().Estatus == 3){
+                    break;
+                  case 3:
                     contadorF++;
                     Estatusword = '<td class="text-danger">Finalizado</td>';
-                }
-                else if(ticket.data().Estatus == 4){
+                    break;
+                  case 4:
                     contadorV++;
                     Estatusword = '<td class="text-verify">Verificado</td>';
-                }
-                else if(ticket.data().Estatus == 5){
+                    break;
+                  case 5:
                     contadorT++;
                     Estatusword = '<td class="text-dark">Terminado</td>';
+                    break;
+                  default:
+                    break;
                 }
-            
             
             const rowtableespecialista = `
             <tr onclick='Ticketview("${ticket.id}")'>
-              <td>${ticket.data().NombreSolicitante}</td>
               <td>${ticket.data().NombreT}</td>
               <td>${ticket.data().PinDepartamento}</td>
               <td>${ticket.data().Categoria}</td>
@@ -274,21 +277,24 @@ const obtieneTickets = (data) =>{
 
 function Filtrar(estatus){
   if(estatus==6){
-    db.collection('Tickets').where("IdUsuarioEspecialista", "==", localStorage.getItem("idU"))
-      .onSnapshot(snapshot =>{
-        obtieneTickets(snapshot.docs);
-
-      }, err => {
-        console.log(err.message);
+    db.collection('Tickets').where('IdUsuarioEspecialista', '==', localStorage.getItem("idU"))
+        .get()
+        .then((querySnapshot) => {
+          obtieneTickets(querySnapshot.docs);
+        })
+        .catch((error) => {
+          console.log("Error getting documents: ", error);
     });
   }
   else{
-    db.collection('Tickets').where("IdUsuarioEspecialista", "==", localStorage.getItem("idU"))
-    .where("Estatus", "==", estatus)
-      .onSnapshot(snapshot =>{
-          obtieneTicketsFiltro(snapshot.docs,estatus);
-      }, err => {
-          console.log(err.message);
+    db.collection('Tickets').where('IdUsuarioEspecialista', '==', localStorage.getItem("idU"))
+    .where('Estatus', '==', estatus)
+        .get()
+        .then((querySnapshot) => {
+          obtieneTicketsFiltro(querySnapshot.docs,estatus);
+        })
+        .catch((error) => {
+          console.log("Error getting documents: ", error);
     });
   }
   
@@ -302,34 +308,37 @@ const obtieneTicketsFiltro = (data,estatus) =>{
       let html1 = '';
       data.forEach(ticket => {
 
-          if(estatus == 0){
+        switch(estatus){
+          case 0:
             Estatusword = '<td class="text-primary">Pendiente</td>';
-          }
-          else if(estatus == 1){
+            break;
+          case 1:
             Estatusword = '<td class="text-success">Abierto</td>';
-          }
-          else if(estatus == 2){
+            break;
+          case 2:
             Estatusword = '<td class="text-warning">En Proceso</td>';
-          }
-          else if(estatus == 3){
+            break;
+          case 3:
             Estatusword = '<td class="text-danger">Finalizado</td>';
-          }
-          else if(estatus == 4){
+            break;
+          case 4:
             Estatusword = '<td class="text-verify">Verificado</td>';
-          }
-          else if(estatus == 5){
+            break;
+          case 5:
             Estatusword = '<td class="text-dark">Terminado</td>';
-          }
+            break;
+          default:
+            break;
+        }
           
           
           const rowtableespecialista = `
           <tr onclick='Ticketview("${ticket.id}")'>
-            <td>${ticket.data().NombreSolicitante}</td>
-            <td>${ticket.data().NombreT}</td>
-            <td>${ticket.data().PinDepartamento}</td>
-            <td>${ticket.data().Categoria}</td>
-            <td>${ticket.data().SubCat}</td>
-            ${Estatusword}
+              <td>${ticket.data().NombreT}</td>
+              <td>${ticket.data().PinDepartamento}</td>
+              <td>${ticket.data().Categoria}</td>
+              <td>${ticket.data().SubCat}</td>
+              ${Estatusword}
           </tr>
           `;
 

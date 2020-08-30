@@ -80,57 +80,21 @@
             <i class="fa fa-bars"></i>
           </button>
 
-          <!-- Topbar Search -->
-          <form class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
-            <div class="input-group">
-              <input type="text" class="form-control bg-light border-0 small" placeholder="Search for..." aria-label="Search" aria-describedby="basic-addon2">
-              <div class="input-group-append">
-                <button class="btn btn-primary" type="button">
-                  <i class="fas fa-search fa-sm"></i>
-                </button>
-              </div>
-            </div>
-          </form>
+          
 
           <!-- Topbar Navbar -->
           <ul class="navbar-nav ml-auto">
 
-            <!-- Nav Item - Search Dropdown (Visible Only XS) -->
-            <li class="nav-item dropdown no-arrow d-sm-none">
-              <a class="nav-link dropdown-toggle" href="#" id="searchDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <i class="fas fa-search fa-fw"></i>
-              </a>
-              <!-- Dropdown - Messages -->
-              <div class="dropdown-menu dropdown-menu-right p-3 shadow animated--grow-in" aria-labelledby="searchDropdown">
-                <form class="form-inline mr-auto w-100 navbar-search">
-                  <div class="input-group">
-                    <input type="text" class="form-control bg-light border-0 small" placeholder="Search for..." aria-label="Search" aria-describedby="basic-addon2">
-                    <div class="input-group-append">
-                      <button class="btn btn-primary" type="button">
-                        <i class="fas fa-search fa-sm"></i>
-                      </button>
-                    </div>
-                  </div>
-                </form>
-              </div>
-            </li>
+            
 
             <!-- Nav Item - User Information -->
             <li class="nav-item dropdown no-arrow">
               <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <span class="mr-2 d-none d-lg-inline text-gray-600 small">Administrador</span>
+                <span class="mr-2 d-none d-lg-inline text-gray-600 small" id="CorreoEspecialista"></span>
                 <img class="img-profile rounded-circle" src="https://source.unsplash.com/QAB-WJcbgJk/60x60">
               </a>
               <!-- Dropdown - User Information -->
               <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
-                <a class="dropdown-item" href="#">
-                  <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
-                  Profile
-                </a>
-                <a class="dropdown-item" href="#">
-                  <i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>
-                  Settings
-                </a>
                 <div class="dropdown-divider"></div>
                 <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
                   <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
@@ -151,18 +115,8 @@
 
           <!-- Page Heading -->
           <div class="d-sm-flex align-items-center justify-content-between mb-4">
-            <h1 class="h3 mb-0 text-gray-800">Tickets</h1>
-            <a href="#" class="d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-download fa-sm text-white-50"></i> Generate Report</a>
+            <h1 class="h3 mb-0 text-gray-800">Tickets Nuevos</h1>
           </div>
-
-          <!-- Content Row -->
-          <div class="row">
-
-            
-
-
-          </div>
-          
 
 
           <div class="card shadow mb-4">
@@ -171,67 +125,28 @@
             </div>
             <div class="card-body">
               <div class="table-responsive">
-                <table class="table table-bordered" id="dataTableAdmin" width="100%" cellspacing="0">
+                <table class="table table-bordered"  width="100%" cellspacing="0">
                   <thead>
                     <tr>
-                      <th>id</th>
-                      <th>Nombre Solicitante</th>
-                      <th>Nombre Especialista</th>
                       <th>Tarea</th>
                       <th>Departamento</th>
                       <th>Categoria</th>
+                      <th>SubCategoria</th>
                       <th>Estatus</th>
                     </tr>
                   </thead>
                   <tfoot>
                     <tr>
-                      <th>id</th>
-                      <th>Nombre Solicitante</th>
-                      <th>Nombre Especialista</th>
                       <th>Tarea</th>
                       <th>Departamento</th>
                       <th>Categoria</th>
+                      <th>SubCategoria</th>
                       <th>Estatus</th>
                     </tr>
                   </tfoot>
-                  <tbody>
-                    <tr>
-                      <td>1</td>
-                      <td>Tiger Nixon</td>
-                      <td>Sin Asignar</td>
-                      <td>System Architect</td>
-                      <td>Edinburgh</td>
-                      <td>Sin Categorizar</td>
-                      <td>Pendiente</td>
-                      
-                    </tr>
-                    <tr>
-                      <td>2</td>
-                      <td>Garrett Winters</td>
-                      <td>Sin Asignar</td>
-                      <td>Accountant</td>
-                      <td>Tokyo</td>
-                      <td>Sin Categorizar</td>
-                      <td>Pendiente</td>
-                    </tr>
-                    <tr>
-                      <td>3</td>
-                      <td>Ashton Cox</td>
-                      <td>Sin Asignar</td>
-                      <td>Junior Technical Author</td>
-                      <td>San Francisco</td>
-                      <td>Sin Categorizar</td>
-                      <td>Pendiente</td>
-                    </tr>
-                    <tr>
-                      <td>4</td>
-                      <td>Donna Snider</td>
-                      <td>Sin Asignar</td>
-                      <td>Customer Support</td>
-                      <td>New York</td>
-                      <td>Sin Categorizar</td>
-                      <td>Pendiente</td>
-                    </tr>
+                  <tbody id="dataTableAdmin">
+                    
+                    
                   </tbody>
                 </table>
               </div>
@@ -304,8 +219,8 @@
   <script src="js/sb-admin-2.js"></script>
   <script src="./js/TableAdmin.js"></script>
 
-  
-  
+  <script src="../js/Constantes.js"></script>
+  <script src="../js/TicketAdmin.js"></script>
 
 
 </body>

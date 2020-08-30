@@ -23,6 +23,7 @@ formaingresar.addEventListener('submit',(e)=>{
         const id = cred.user.uid;
 
         db.collection('Usuarios').doc(id).get().then(datos =>{
+            //localStorage.setItem("DatosUsuario",JSON.parse(datos));
             if(datos.data().Estatus == "0"){
                 return window.document.location = 'DeskProfile/Empresa.html';
             }
@@ -39,6 +40,7 @@ formaingresar.addEventListener('submit',(e)=>{
         formaingresar.reset();
         
     }).catch( err => {
+        localStorage.setItem("DatosUsuario","");
         console.log(err);
     });
     

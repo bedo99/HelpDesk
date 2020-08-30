@@ -14,6 +14,7 @@ var firebaseConfig = {
   
   const auth = firebase.auth();
   const db = firebase.firestore();
+  db.settings({ timestampsInSnapshots: false});
 
 const salir = document.getElementById('salir');
 
