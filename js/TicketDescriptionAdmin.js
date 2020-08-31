@@ -1,3 +1,5 @@
+
+
 const tituloT = document.querySelector('#tituloticket');
 const DescrT = document.querySelector('#Descripcionticket');
 var NombreSolicitante = document.querySelector('#NombreSolicitante');
@@ -44,9 +46,9 @@ docRef.get()
         tituloT.innerHTML = doc.data().NombreT;
         DescrT.innerHTML = doc.data().DescripcionT;
 
-        var docRefU = db.collection('Usuarios').doc(doc.data().IdSolicitante)
+        var docRefU = db.collection('Usuarios').doc(doc.data().IdUsuarioEspecialista)
         docRefU.get()
-        .then((user) => {
+        .then((user) => {Estatus
             NombreSolicitante.innerHTML = user.data().Nombre;
         })
         .catch((error) => {
@@ -144,6 +146,8 @@ btnCambios.addEventListener('click', (e)=>{
         SubCat: sub,
         IdUsuarioEspecialista: esp
     }).then((e)=>{
+
+        
         return window.document.location = './Admin.html';
     })
     
