@@ -110,7 +110,7 @@ docRef.get()
             // Handle any errors
           });
         }
-        else if(s[1] == "mp3" || s[1] == "mpeg"){
+        else if(s[1] == "mp3" || s[1] == "mpeg" || s[1] == "amr"){
           storage.ref().child(doc.data().Adjunto).getDownloadURL().then((url) => {
           
             
