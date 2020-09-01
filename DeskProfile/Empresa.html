@@ -215,7 +215,7 @@
   <div id="myModalRight" class="modal fade modal-right" tabindex="-1" role="dialog" aria-hidden="true" data-backdrop="true">
    <div class="modal-dialog modal-full-height modal-right modal-notify modal-info" role="document">
     <div class="modal-content">
-      <!--Header-->
+     
       <div class="modal-header">
         <p class="heading lead">Generar Tarea
         </p>
@@ -225,7 +225,7 @@
         </button>
       </div>
 
-      <!--Body-->
+      
       <div class="modal-body">
         <div class="text-center">
           <i class="far fa-file-alt fa-4x mb-3 animated rotateIn"></i>
@@ -239,38 +239,38 @@
 
         <hr>
 
-        <!-- Titulo -->
+        
         <p class="text-center">
           <strong>Titulo de la Tarea</strong>
         </p>
         <div class="input-fieldsEmpresa">
           <i class="fas fa-align-left"></i>
-          <input type="text" placeholder="Titulo" />
+          <input id="TituloTarea" type="text" placeholder="Titulo" />
         </div>
-        <!-- Titulo -->
+        
 
-        <!-- Descripcion -->
+       
         <p class="text-center">
           <strong>Descripcion</strong>
         </p>
         <div class="md-form">
-          <textarea type="text" id="form79textarea" class="md-textarea form-control" rows="3"></textarea>
+          <textarea id="DescripcionTarea" type="text" id="form79textarea" class="md-textarea form-control" rows="3"></textarea>
         </div>
-        <!-- Descripcion -->
+        
 
-        <!-- Adjunto -->
+        
         <p class="text-center">
           <strong>Seleccionar algun Adjunto o prueba</strong>
         </p>
         <div class="md-form">
-          <input type="file" name="archivo" title="seleccionar fichero" id="importData" accept=".jpg,.png" />
+          <input  type="file" name="archivo" title="seleccionar fichero" id="FileButton" accept=".jpg,.png,.mp3,.mp4" />
         </div>
-        <!-- Adjunto -->
+        
       
 
-      <!--Footer-->
+      
       <div class="modal-footer justify-content-center">
-        <a type="button" class="btn btn-primary waves-effect waves-light">Send
+        <a id="btnCrearTarea" type="button" class="btn btn-primary waves-effect waves-light">Send
           <i class="fa fa-paper-plane ml-1"></i>
         </a>
         <a type="button" class="btn btn-outline-primary waves-effect" data-dismiss="modal">Cancel</a>
@@ -279,11 +279,14 @@
    </div>
   </div>
   <!-- Modal Right Tareas -->
+  
 
+ 
   <!-- The core Firebase JS SDK is always required and must be listed first -->
-  <script src="https://www.gstatic.com/firebasejs/7.14.2/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/7.19.1/firebase-app.js"></script>
   <script src="https://www.gstatic.com/firebasejs/7.14.2/firebase-auth.js"></script>
   <script src="https://www.gstatic.com/firebasejs/7.14.2/firebase-firestore.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/7.14.2/firebase-storage.js"></script>
 
   <!-- TODO: Add SDKs for Firebase products that you want to use
   https://firebase.google.com/docs/web/setup#available-libraries

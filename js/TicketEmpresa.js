@@ -1,6 +1,12 @@
 const usuario = document.querySelector('#CorreoEspecialista');
 const ListaTicketsCard = document.querySelector('#ListaTicketsCard');
 const rowsTabla = document.querySelector('#dataTableEmpresa');
+const btnCrearTarea = document.querySelector('#btnCrearTarea');
+const TituloTarea = document.querySelector('#TituloTarea');
+const DescripcionTarea = document.querySelector('#DescripcionTarea');
+
+const FileButton = document.querySelector('#FileButton');
+var file;
 
 auth.onAuthStateChanged( user =>{
 
@@ -249,7 +255,7 @@ const obtieneTickets = (data) =>{
                 <div class="card-body">
                   <div class="row no-gutters align-items-center">
                     <div class="col mr-2">
-                      <div class="text-xs font-weight-bold text-dark text-uppercase mb-1">No Tienes Asignados</div>
+                      <div class="text-xs font-weight-bold text-dark text-uppercase mb-1">No has realizado Tareas</div>
                       <div class="h5 mb-0 font-weight-bold text-gray-800"></div>
                     </div>
                     <div class="col-auto">
@@ -357,6 +363,41 @@ function Ticketview(ticketid){
   window.document.location = './TicketDescriptionEmpresa.html';
 }
 
+btnCrearTarea.addEventListener('click',(e) => {
+  e.preventDefault();
+
+  
+  var t = document.querySelector('#TituloTarea').value;
+  var d = document.querySelector('#DescripcionTarea').value;
+
+  var metadata = {
+    contentType: file.type
+  }
+  var StorageRef = storage.ref('folder_imagenes/' + file.name);
+  StorageRef.put(file,metadata);
+
+  
+  db.collection('Tickets').add({
+    NombreT: t,
+    DescripcionT: d,
+    Categoria: "Sin Asignar",
+    SubCat: "Sin Asignar",
+    Estatus: 0,
+    IdSolicitante: localStorage.getItem("idU"),
+    IdUsuarioEspecialista: "",
+    PinDepartamento: "SDep",
+    Adjunto: StorageRef.fullPath
+  });
+
+});
+
+
+FileButton.addEventListener('change', (e)=>{
+  
+  file = e.target.files[0];
+
+  
+});
 
 
 

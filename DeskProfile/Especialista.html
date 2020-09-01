@@ -120,12 +120,41 @@
           <!-- Content Row -->
           <div class="row" id="ListaTicketsCard">
 
-            
-
-
-
           </div>
           
+          <div class="card shadow mb-4">
+            <div class="card-header py-3">
+              <h6 class="m-0 font-weight-bold text-primary">Tickets</h6>
+            </div>
+            <div class="card-body">
+              <div class="table-responsive">
+                <table class="table table-bordered"  width="100%" cellspacing="0">
+                  <thead>
+                    <tr>
+                      <th>Tarea</th>
+                      <th>Departamento</th>
+                      <th>Categoria</th>
+                      <th>SubCategoria</th>
+                      <th>Estatus</th>
+                    </tr>
+                  </thead>
+                  <tfoot>
+                    <tr>
+                      <th>Tarea</th>
+                      <th>Departamento</th>
+                      <th>Categoria</th>
+                      <th>SubCategoria</th>
+                      <th>Estatus</th>
+                    </tr>
+                  </tfoot>
+                  <tbody id="dataTableEspecialista">
+                    
+                    
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
 
           
 
@@ -179,6 +208,7 @@
   <script src="https://www.gstatic.com/firebasejs/7.14.2/firebase-app.js"></script>
   <script src="https://www.gstatic.com/firebasejs/7.14.2/firebase-auth.js"></script>
   <script src="https://www.gstatic.com/firebasejs/7.14.2/firebase-firestore.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/7.14.2/firebase-storage.js"></script>
 
   <!-- TODO: Add SDKs for Firebase products that you want to use
   https://firebase.google.com/docs/web/setup#available-libraries

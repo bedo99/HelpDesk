@@ -87,7 +87,7 @@ const obtieneTickets = (data) =>{
     }
  };
 
- salir.addEventListener('click', (e)=>{
+salir.addEventListener('click', (e)=>{
     e.preventDefault();
     auth.signOut().then(()=>{
         localStorage.clear();
