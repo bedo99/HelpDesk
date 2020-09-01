@@ -71,6 +71,14 @@ docRef.get()
         }
         
 
+        var docRefU = db.collection('Usuarios').doc(doc.data().IdUsuarioEspecialista)
+        docRefU.get()
+        .then((user) => {
+            NombreEspecialista.innerHTML = user.data().Nombre;
+        })
+        .catch((error) => {
+            console.log("Error getting documents: ", error);
+        });
         
         var s = doc.data().Adjunto.split(".");
         if(s[1] == "mp4"){
@@ -108,14 +116,7 @@ docRef.get()
         }
         
 
-        var docRefU = db.collection('Usuarios').doc(doc.data().IdUsuarioEspecialista)
-        docRefU.get()
-        .then((user) => {
-            NombreEspecialista.innerHTML = user.data().Nombre;
-        })
-        .catch((error) => {
-            console.log("Error getting documents: ", error);
-        });
+        
 
         
     }

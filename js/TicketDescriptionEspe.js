@@ -98,6 +98,15 @@ docRef.get()
         
         dropdown.innerHTML = html;
 
+        var docRefU = db.collection('Usuarios').doc(doc.data().IdSolicitante)
+        docRefU.get()
+        .then((user) => {
+            NombreSolicitante.innerHTML = user.data().Nombre;
+        })
+        .catch((error) => {
+            console.log("Error getting documents: ", error);
+        });
+
         var s = doc.data().Adjunto.split(".");
         if(s[1] == "mp4"){
           storage.ref().child(doc.data().Adjunto).getDownloadURL().then((url) => {
@@ -134,14 +143,7 @@ docRef.get()
         }
         
 
-        var docRefU = db.collection('Usuarios').doc(doc.data().IdSolicitante)
-        docRefU.get()
-        .then((user) => {
-            NombreSolicitante.innerHTML = user.data().Nombre;
-        })
-        .catch((error) => {
-            console.log("Error getting documents: ", error);
-        });
+        
 
         
     }
