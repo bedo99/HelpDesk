@@ -26,5 +26,17 @@ Usuario.create = (nuevoUsuario, resultado) => {
     } )
 }
 
+Usuario.login = (existenteUsuario, resultado) =>{
+    sql.query(`CALL login ('${existenteUsuario.Correo}', '${existenteUsuario.Contrasena}');`,(err, res) =>{
+        if(err){
+            console.log("error: ", err);
+            resultado(err, null);
+            return;
+        }
+        console.log("Login Realizado Correctamente", { res });
+        resultado(null, { res });
+    } )
+}
+
 
 module.exports = Usuario;

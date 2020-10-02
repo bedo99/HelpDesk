@@ -62,8 +62,12 @@
                 <i class="fas fa-lock"></i>
                 <input type="text" id="rpassword" placeholder="Password" />
               </div>
+              <div class="input-field">
+                <i class="fas fa-lock"></i>
+                <input type="text" id="rnombreEmpresa" placeholder="Empresa" />
+              </div>
               
-              <input type="submit" class="btn" value="Registrame" />
+              <input type="submit" class="btn" value="Registrame" onclick="registroUsuario()">
 
               <div class="social-media">
                 <a href="https://www.facebook.com/ayudaTechBoys" class="social-icon">
@@ -105,10 +109,8 @@
         </div>
       </div>
 
-      <!-- The core Firebase JS SDK is always required and must be listed first -->
-      <script src="https://www.gstatic.com/firebasejs/7.14.2/firebase-app.js"></script>
-      <script src="https://www.gstatic.com/firebasejs/7.14.2/firebase-auth.js"></script>
-      <script src="https://www.gstatic.com/firebasejs/7.14.2/firebase-firestore.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
 
       <!-- TODO: Add SDKs for Firebase products that you want to use
       https://firebase.google.com/docs/web/setup#available-libraries
