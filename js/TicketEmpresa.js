@@ -8,37 +8,14 @@ const DescripcionTarea = document.querySelector('#DescripcionTarea');
 const FileButton = document.querySelector('#FileButton');
 var file;
 
-auth.onAuthStateChanged( user =>{
+let usuarioSession = JSON.parse(sessionStorage.getItem("userSesion"));
+if(!usuarioSession){
+  window.document.location = '../index.html';
+}
+usuario.innerHTML = usuarioSession.NombreUsuario;
 
-    if(user){
-        
-        localStorage.setItem("idU",user.uid);
-        usuario.innerHTML = user.email;
-
-        db.collection('Tickets').where('IdSolicitante', '==', localStorage.getItem("idU"))
-        .get()
-        .then((querySnapshot) => {
-          obtieneTickets(querySnapshot.docs);
-        })
-        .catch((error) => {
-          console.log("Error getting documents: ", error);
-        });
-
-    }
-    else{
-        console.log('Usuario salió');
-        obtieneTickets([]);
-    }
-
-});
-
-
-var mistorage = window.localStorage;
-console.log(mistorage);
 
 const obtieneTickets = (data) =>{
-    
-    
     if(data.length){
         
         let html = '';
@@ -273,7 +250,7 @@ const obtieneTickets = (data) =>{
  salir.addEventListener('click', (e)=>{
     e.preventDefault();
     auth.signOut().then(()=>{
-        localStorage.clear();
+        sessionStorage.clear();
         return window.document.location = '../index.html';
     });
 

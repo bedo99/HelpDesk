@@ -22,9 +22,32 @@ exports.create = (req, res) => {
                     message:
                         err.message || "Some error occurred while creating the Customer."
                 });
-            else res.send(data);
+            else res.status(200).send(data);
+        });
+    }
+};
+
+
+exports.login = (req, res) => {
+    if(!req.body){
+        res.status(400).send({
+            message: "Content can not be empty!"
+        });
+    }else {
+        const usuario = new Usuario({
+            Correo: req.body.Correo,
+            Contrasena: req.body.Contrasena,
+        });
+
+        Usuario.login(usuario, (err, data) => {
+            if (err)
+                res.status(500).send({
+                    message:
+                        err.message || "Error al iniciar sesión"
+                });
+            else res.status(200).send(data);
         });
     }
 
 
-};
+} 
