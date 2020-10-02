@@ -22,8 +22,6 @@
 
   <!-- Custom styles for this template-->
   <link href="css/sb-admin-2.css" rel="stylesheet">
-  <link rel="stylesheet" href="../css/Empresa.css" />
-  
 
 </head>
 
@@ -36,24 +34,45 @@
     <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
       <!-- Sidebar - Brand -->
-      <a class="sidebar-brand d-flex align-items-center justify-content-center" href="Empresa.html">
+      <a class="sidebar-brand d-flex align-items-center justify-content-center" href="Admin.html">
         <div class="sidebar-brand-icon rotate-n-15">
           <i class="fas fa-laugh-wink"></i>
         </div>
         <div class="sidebar-brand-text mx-3">Tech Boys<sup></sup></div>
       </a>
 
-
-      
       <!-- Divider -->
       <hr class="sidebar-divider my-0">
 
       <!-- Nav Item - Dashboard -->
       <li class="nav-item active">
-        <a class="nav-link" href="Empresa.html">
+        <a class="nav-link" href="Admin.html">
           <i class="fas fa-ticket-alt"></i>
-          <span>Mis Tareas</span></a>
+          <span>Tickets</span></a>
       </li>
+
+      <!-- Divider -->
+      <hr class="sidebar-divider my-0">
+
+      <!-- Nav Item - Pages Collapse Menu -->
+      <li class="nav-item active">
+        <a class="nav-link" href="#" data-toggle="collapse" data-target="#collapsePages" aria-expanded="true" aria-controls="collapsePages">
+          <i class="fas fa-fw fa-folder"></i>
+          <span>Empresa</span>
+        </a>
+        <div id="collapsePages" class="collapse show" aria-labelledby="headingPages" data-parent="#accordionSidebar">
+          <div class="bg-white py-2 collapse-inner rounded">
+            <a class="collapse-item" href="CrearCatalogo.html">Crear Catalogo</a>
+            <div class="collapse-divider"></div>
+            <h6 class="collapse-header">Empresas</h6>
+            
+          </div>
+        </div>
+      </li>
+
+      
+
+      
 
       
 
@@ -92,12 +111,11 @@
             <!-- Nav Item - User Information -->
             <li class="nav-item dropdown no-arrow">
               <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <span class="mr-2 d-none d-lg-inline text-gray-600 small" id="CorreoEspecialista">Nombre Usuario Empresa</span>
+                <span class="mr-2 d-none d-lg-inline text-gray-600 small" id="CorreoEspecialista"></span>
                 <img class="img-profile rounded-circle" src="https://source.unsplash.com/QAB-WJcbgJk/60x60">
               </a>
               <!-- Dropdown - User Information -->
               <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
-                
                 <div class="dropdown-divider"></div>
                 <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
                   <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
@@ -106,6 +124,8 @@
               </div>
             </li>
 
+            
+            
           </ul>
 
         </nav>
@@ -116,49 +136,46 @@
 
           <!-- Page Heading -->
           <div class="d-sm-flex align-items-center justify-content-between mb-4">
-            <h1 class="h3 mb-0 text-gray-800">Tareas Asignadas a TechBoys:</h1>
-            
-            <a href="#" class="d-sm-inline-block btn btn-sm btn-primary shadow-sm" data-toggle="modal" data-target="#myModalRight" ><i class="fas fa-plus-circle fa-sm text-white-50"></i> Generar Tareas</a>
+            <h1 class="h3 mb-0 text-gray-800">Crear Catalogo</h1>
           </div>
 
-          <!-- Content Row -->
-          <div class="row" id="ListaTicketsCard">
-
-            
-
-        
+          <div class="input-field">
+            <i class="fas fa-building"></i>
+            <input type="text" id="" placeholder="Nombre del Catalogo" />
           </div>
+
+          <a class="btn btn-primary" href="" id="btnCrearCatalogo" >Crear</a>
           
-
-
-
-
-
-
+          <br>
 
           <div class="card shadow mb-4">
             <div class="card-header py-3">
-              <h6 class="m-0 font-weight-bold text-primary">Mis Tareas</h6>
+              <h6 class="m-0 font-weight-bold text-primary">Mi Catalogo</h6>
             </div>
             <div class="card-body">
               <div class="table-responsive">
                 <table class="table table-bordered"  width="100%" cellspacing="0">
                   <thead>
                     <tr>
-                      <th>Tarea</th>
-                      <th>Descripcion</th>
-                      <th>Estatus</th>
+                      <th>Nombre</th>
                     </tr>
                   </thead>
                   <tfoot>
                     <tr>
-                      <th>Tarea</th>
-                      <th>Descripcion</th>
-                      <th>Estatus</th>
+                      <th>Nombre</th>
                     </tr>
                   </tfoot>
-                  <tbody id="dataTableEmpresa">
-                    
+                  <tbody id="dataCatalogo">
+                    <tr>
+                    <td>Empresa1<a href="" class="btn btn-danger btn-circle btn-sm"><i class="fas fa-trash"></i></a></td>
+                    </tr>
+                    <tr>
+                    <td>Empresa2<a href="" class="btn btn-danger btn-circle btn-sm"><i class="fas fa-trash"></i></a></td>
+                    </tr>
+                    <tr><td>Empresa3<a href="" class="btn btn-danger btn-circle btn-sm"><i class="fas fa-trash"></i></a></td></tr>
+                    <tr><td>Empresa4<a href="" class="btn btn-danger btn-circle btn-sm"><i class="fas fa-trash"></i></a></td></tr>
+                    <tr><td>Empresa5<a href="" class="btn btn-danger btn-circle btn-sm"><i class="fas fa-trash"></i></a></td></tr>
+                    <tr><td>Empresa6<a href="" class="btn btn-danger btn-circle btn-sm"><i class="fas fa-trash"></i></a></td></tr>
                   </tbody>
                 </table>
               </div>
@@ -211,79 +228,8 @@
     </div>
   </div>
 
-  <!-- Modal Right Tareas -->
-  <div id="myModalRight" class="modal fade modal-right" tabindex="-1" role="dialog" aria-hidden="true" data-backdrop="true">
-   <div class="modal-dialog modal-full-height modal-right modal-notify modal-info" role="document">
-    <div class="modal-content">
-     
-      <div class="modal-header">
-        <p class="heading lead">Generar Tarea
-        </p>
-
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true" class="white-text">×</span>
-        </button>
-      </div>
-
-      
-      <div class="modal-body">
-        <div class="text-center">
-          <i class="far fa-file-alt fa-4x mb-3 animated rotateIn"></i>
-          <p>
-            <strong>Haznos saber lo que necesitas</strong>
-          </p>
-          <p> ¿ Que ideas tienes para nosotros ? 
-            <strong>Estamos para ti</strong>
-          </p>
-        </div>
-
-        <hr>
-
-        
-        <p class="text-center">
-          <strong>Titulo de la Tarea</strong>
-        </p>
-        <div class="input-fieldsEmpresa">
-          <i class="fas fa-align-left"></i>
-          <input id="TituloTarea" type="text" placeholder="Titulo" />
-        </div>
-        
-
-       
-        <p class="text-center">
-          <strong>Descripcion</strong>
-        </p>
-        <div class="md-form">
-          <textarea id="DescripcionTarea" type="text" id="form79textarea" class="md-textarea form-control" rows="3"></textarea>
-        </div>
-        
-
-        
-        <p class="text-center">
-          <strong>Seleccionar algun Adjunto o prueba</strong>
-        </p>
-        <div class="md-form">
-          <input  type="file" name="archivo" title="seleccionar fichero" id="FileButton" accept=".jpg,.png,.mp3,.mp4" />
-        </div>
-        
-      
-
-      
-      <div class="modal-footer justify-content-center">
-        <a id="btnCrearTarea" type="button" class="btn btn-primary waves-effect waves-light">Crear
-          <i class="fa fa-paper-plane ml-1"></i>
-        </a>
-        <a type="button" class="btn btn-outline-primary waves-effect" data-dismiss="modal">Cancelar</a>
-      </div>
-    </div>
-   </div>
-  </div>
-  <!-- Modal Right Tareas -->
-  
-
- 
   <!-- The core Firebase JS SDK is always required and must be listed first -->
-  <script src="https://www.gstatic.com/firebasejs/7.19.1/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/7.14.2/firebase-app.js"></script>
   <script src="https://www.gstatic.com/firebasejs/7.14.2/firebase-auth.js"></script>
   <script src="https://www.gstatic.com/firebasejs/7.14.2/firebase-firestore.js"></script>
   <script src="https://www.gstatic.com/firebasejs/7.14.2/firebase-storage.js"></script>
@@ -291,7 +237,6 @@
   <!-- TODO: Add SDKs for Firebase products that you want to use
   https://firebase.google.com/docs/web/setup#available-libraries
   <script src="https://www.gstatic.com/firebasejs/7.19.0/firebase-analytics.js"></script> -->
-  
 
   <!-- Bootstrap core JavaScript-->
   <script src="vendor/jquery/jquery.min.js"></script>
@@ -302,10 +247,11 @@
 
   <!-- Custom scripts for all pages-->
   <script src="js/sb-admin-2.js"></script>
-  <script src="./js/TableEmpresa.js"></script>
+  <script src="./js/TableAdmin.js"></script>
 
   <script src="../js/Constantes.js"></script>
-  <script src="../js/TicketEmpresa.js"></script>
+  <script src="../js/TicketAdmin.js"></script>
+
 
 </body>
 

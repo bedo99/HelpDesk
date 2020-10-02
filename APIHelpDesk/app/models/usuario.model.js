@@ -24,7 +24,9 @@ Usuario.create = (nuevoUsuario, resultado) => {
         console.log("Usuario Registrado Correctamente", { res });
         resultado(null, { res });
     } )
-}
+};
+
+
 
 
 module.exports = Usuario;

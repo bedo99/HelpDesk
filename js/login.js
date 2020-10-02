@@ -41,7 +41,7 @@ formaingresar.addEventListener('submit',(e)=>{
         
     }).catch( err => {
         localStorage.setItem("DatosUsuario","");
-        console.log(err);
+        formaingresar.querySelector('.error').innerHTML = mensajeError(err.code);
     });
     
 });
@@ -51,26 +51,36 @@ const formaregistrate = document.getElementById('sign-up-form');
 formaregistrate.addEventListener('submit',(e)=>{
     e.preventDefault();
 
+    const nombreUsuario = formaregistrate['rnombre'].value;
+    const nombreEmpresa = formaregistrate['rnombreEmpresa'].value;
     const email = formaregistrate['remail'].value;
     const password = formaregistrate['rpassword'].value;
-
-    auth.createUserWithEmailAndPassword(email,password).then( cred =>{
-
-        return db.collection('Usuarios').doc(cred.user.uid).set({
-            Nombre: formaregistrate['rnombre'].value,
-            Telefono: formaregistrate['rtelefono'].value,
-            Estatus: 0
-        });
-
-
-    }).then( ()=>{
-
-        formaregistrate.reset();
-        return window.document.location = 'DeskProfile/Empresa.html';
-
-    }).catch( err => {
-        formaregistrate.querySelector('.error').innerHTML = mensajeError(err.code);
-    });
-
+    const tel = formaregistrate['rtelefono'].value;
+    console.log(tel,email,password,nombreUsuario,nombreEmpresa);
+    
+    
 
 });
+
+
+function mensajeError(codigo) {
+
+    let mensaje = '';
+
+    switch(codigo) {
+        case 'auth/wrong-password':
+          mensaje = 'Su contraseña no es correcta';
+          break;
+        case 'auth/user-not-found':
+            mensaje = 'El usuario no existe o el correo no esta registrado';
+            break;
+        case 'auth/weak-password':
+            mensaje = 'Contraseña débil debe tener al menos 6 caracteres';
+            break;
+        default:
+            mensaje = 'Ocurrió un error al ingresar con este usuario';
+      }
+    return mensaje;
+  }
+
+  

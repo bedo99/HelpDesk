@@ -12,6 +12,7 @@
       crossorigin="anonymous"
     ></script>
     <link rel="stylesheet" href="css/login.css" />
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 </head>
 <body>
 
@@ -33,14 +34,7 @@
               </div>
               <input type="submit" value="Entrar" class="btn solid" />
 
-              <div class="social-media">
-                <a href="https://www.facebook.com/ayudaTechBoys" class="social-icon">
-                  <i class="fab fa-facebook-f"></i>
-                </a>
-                <a href="https://www.instagram.com/techboys.mx/" class="social-icon">
-                  <i class="fab fa-instagram"></i>
-                </a>
-              </div>
+              <p class="error text-danger"></p>
 
             </form>
 
@@ -48,7 +42,11 @@
               <h2 class="title">Forma parte de nosotros</h2>
               <div class="input-field">
                 <i class="fas fa-user"></i>
-                <input type="text" id="rnombre" placeholder="Nombre Empresarial" />
+                <input type="text" id="rnombre" name="rnombre" placeholder="Nombre Usuario" />
+              </div>
+              <div class="input-field">
+                <i class="fas fa-user"></i>
+                <input type="text" id="rnombreEmpresa" name="rnombreEmpresa" placeholder="Nombre de la empresa" />
               </div>
               <div class="input-field">
                 <i class="fas fa-envelope"></i>
@@ -60,19 +58,13 @@
               </div>
               <div class="input-field">
                 <i class="fas fa-lock"></i>
-                <input type="text" id="rpassword" placeholder="Password" />
+                <input type="password" id="rpassword" placeholder="Password" />
               </div>
               
               <input type="submit" class="btn" value="Registrame" />
 
-              <div class="social-media">
-                <a href="https://www.facebook.com/ayudaTechBoys" class="social-icon">
-                  <i class="fab fa-facebook-f"></i>
-                </a>
-                <a href="https://www.instagram.com/techboys.mx/" class="social-icon">
-                  <i class="fab fa-instagram"></i>
-                </a>
-              </div>
+              
+              <p class="error text-danger" id="error"></p>
             </form>
           </div>
         </div>
@@ -116,7 +108,6 @@
       
   
       
-      <script src="js/Constantes.js"></script>
       <script src="js/login.js"></script>
 
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>

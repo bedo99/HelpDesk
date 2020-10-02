@@ -13,17 +13,17 @@
 
   <!-- Custom fonts for this template-->
   <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
-  <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
+    rel="stylesheet">
 
-  <script
-      src="https://kit.fontawesome.com/64d58efce2.js"
-      crossorigin="anonymous"
-  ></script>
+  <script src="https://kit.fontawesome.com/64d58efce2.js" crossorigin="anonymous"></script>
 
   <!-- Custom styles for this template-->
   <link href="css/sb-admin-2.css" rel="stylesheet">
-  <link rel="stylesheet" href="../css/TicketDescription.css" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.0.0/animate.min.css"/>
+  <link rel="stylesheet" href="../css/TicketDescription2.css" />
+  <link rel="stylesheet" href="../css/TicketDescription2.2.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.0.0/animate.min.css" />
 
 </head>
 
@@ -43,18 +43,34 @@
         <div class="sidebar-brand-text mx-3">Tech Boys<sup></sup></div>
       </a>
 
-      
       <!-- Divider -->
       <hr class="sidebar-divider my-0">
 
       <!-- Nav Item - Dashboard -->
       <li class="nav-item active">
-        <a class="nav-link" href="Empresa.html">
+        <a class="nav-link" href="Admin.html">
           <i class="fas fa-ticket-alt"></i>
-          <span>Mis Tareas</span></a>
+          <span>Tickets</span></a>
       </li>
 
-      
+      <!-- Nav Item - Pages Collapse Menu -->
+      <li class="nav-item active">
+        <a class="nav-link" href="#" data-toggle="collapse" data-target="#collapsePages" aria-expanded="true"
+          aria-controls="collapsePages">
+          <i class="fas fa-fw fa-folder"></i>
+          <span>Empresa</span>
+        </a>
+        <div id="collapsePages" class="collapse show" aria-labelledby="headingPages" data-parent="#accordionSidebar">
+          <div class="bg-white py-2 collapse-inner rounded">
+            <a class="collapse-item" href="CrearCatalogo.html">Crear Catalogo</a>
+            <div class="collapse-divider"></div>
+            <h6 class="collapse-header">Empresas</h6>
+
+          </div>
+        </div>
+      </li>
+
+
 
       <!-- Divider -->
       <hr class="sidebar-divider d-none d-md-block">
@@ -81,25 +97,27 @@
             <i class="fa fa-bars"></i>
           </button>
 
-         
+
 
           <!-- Topbar Navbar -->
           <ul class="navbar-nav ml-auto">
 
-            
+
+
             <!-- Nav Item - User Information -->
             <li class="nav-item dropdown no-arrow">
-              <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <span class="mr-2 d-none d-lg-inline text-gray-600 small" id="CorreoEmpresa"></span>
+              <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown"
+                aria-haspopup="true" aria-expanded="false">
+                <span class="mr-2 d-none d-lg-inline text-gray-600 small" id="CorreoEspecialista"></span>
                 <img class="img-profile rounded-circle" src="https://source.unsplash.com/QAB-WJcbgJk/60x60">
               </a>
               <!-- Dropdown - User Information -->
               <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
-                
+
                 <div class="dropdown-divider"></div>
                 <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
                   <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
-                  Logout
+                  Cerrar Sesion
                 </a>
               </div>
             </li>
@@ -112,101 +130,96 @@
         <!-- Begin Page Content -->
         <div class="container-fluid">
 
-            <section id="cd-timeline" class="cd-container">
-                <div class="cd-timeline-block">
-                    <div class="cd-timeline-img cd-picture">
-                        <img src="../img/calendario.svg" alt="Calendario">
-                    </div> <!-- cd-timeline-img -->
-        
-                    <div class=" animate__animated animate__fadeInLeft cd-timeline-content">
-                        <h2>Fecha de Creacion</h2>
-                        <span class="cd-date">15/02/2020</span>
-                    </div> <!-- cd-timeline-content -->
-                </div> <!-- cd-timeline-block -->
-                <div class="cd-timeline-block">
-                    <div class="cd-timeline-img cd-picture">
-                        <img src="../img/titulo.svg" alt="Titulo">
-                    </div> <!-- cd-timeline-img -->
-        
-                    <div class="animate__animated animate__fadeInRight cd-timeline-content">
-                        <h2>Titulo</h2>
-                        <p id="tituloticket"></p>
-                        <p></p>
-                    </div> <!-- cd-timeline-content -->
-                </div> <!-- cd-timeline-block -->
-        
-                <div class="cd-timeline-block">
-                    <div class="cd-timeline-img cd-movie">
-                        <img src="../img/Descripcion.svg" alt="Movie">
-                    </div> <!-- cd-timeline-img -->
-        
-                    <div class=" animate__animated animate__fadeInLeft cd-timeline-content">
-                        <h2>Descripcion</h2>
-                        <p id="Descripcionticket"></p>
-                    </div> <!-- cd-timeline-content -->
-                </div> <!-- cd-timeline-block -->
-        
-                <div class="cd-timeline-block">
-                    <div class="cd-timeline-img cd-picture">
-                        <img src="../img/adjuntar.svg" alt="Picture">
-                    </div> <!-- cd-timeline-img -->
-        
-                    <div class="animate__animated animate__fadeInRight cd-timeline-content">
-                        <h2>Adjuntos</h2>
-                        <img id="myimg"></img>
-                        <video id="myvideo" width="320"  height="240" controls></video>
-                        <audio id="myaudio" controls></audio>
-                        
-                    </div> <!-- cd-timeline-content -->
-                </div> <!-- cd-timeline-block -->
-
-                <div class="cd-timeline-block">
-                    <div class="cd-timeline-img cd-location">
-                        <img src="../img/Especialista.svg" alt="Location">
-                    </div> <!-- cd-timeline-img -->
-        
-                    <div class="  animate__animated animate__fadeInLeft cd-timeline-content">
-                        <h2>Especialista que me atiende</h2>
-                        <h5 id="NombreEspecialista"></h5>
-                    </div> <!-- cd-timeline-content -->
-                </div> <!-- cd-timeline-block -->
-        
-        
-                <div class="cd-timeline-block">
-                    <div class="cd-timeline-img cd-movie">
-                        <img src="../img/Estatus.svg" alt="Movie" >
-                    </div> <!-- cd-timeline-img -->
-        
-                    <div class=" animate__animated animate__fadeInRight cd-timeline-content">
-                        <h2>Estatus</h2>
-                        <h5 id="Estatus"></h5>
-                    </div> <!-- cd-timeline-content -->
-                </div> <!-- cd-timeline-block -->
-
-
-
-            
-
-            </section> <!-- cd-timeline -->
-
-        </div>
-        <!-- /.container-fluid -->
-
-      </div>
-      <!-- End of Main Content -->
-
-      <!-- Footer -->
-      <footer class="sticky-footer bg-white">
-        <div class="container my-auto">
-          <div class="copyright text-center my-auto">
-            <span>Copyright &copy; TechBoys 2020</span>
+          <!-- Page Heading -->
+          <div class="d-sm-flex align-items-center justify-content-between mb-4">
+            <h1 class="h3 mb-0 text-gray-800">Caracterisitcas Ticket</h1>
           </div>
+
+          <div class="container padding-bottom-3x mb-2">
+            <div class="row">
+              <div class="col-lg-4">
+              </div>
+              <div class="col-lg-12">
+                <div class="padding-top-2x mt-2 hidden-lg-up"></div>
+                <div class="table-responsive margin-bottom-2x">
+                  <table class="table margin-bottom-none">
+                    <thead>
+                      <tr>
+                        <th>Fecha Ticket Empezado</th>
+                        <th>Nombre del Solicitante</th>
+                        <th>Nombre de Especialista</th>
+                        <th>Estatus</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>08/08/2017</td>
+                        <td>Aqui Va el Nombre De la persona que creo el Ticket</td>
+                        <td>Gerardowindu</td>
+                        <td><span class="text-primary">Pendiente</span></td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="profile-timeline">
+            <ul class="list-unstyled">
+              <li class="timeline-item">
+                <div class="card card-white grid-margin">
+                  <div class="card-body">
+                    <div class="timeline-item-header">
+                      <p>Titulo Ticket</p>
+                      <small id="tituloticket">Este es mi titulo</small>
+                    </div>
+                    <div class="timeline-item-post">
+                      <div class="timeline-item-header">
+                        <p>Descripcion Ticket</p>
+                      </div>
+                      <p id="Descripcionticket">Elavita veritatis et quasi architecto beatae vitae dicta sunt explicabo.
+                        Nemo enim ipsam
+                        voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur.</p>
+                      <div class="timeline-item-header">
+                        <p>Adjunto</p>
+                      </div>
+                      <div class="cd-timeline-block">
+                        <div id="Adjunto" class="animate__animated animate__fadeInRight cd-timeline-content">
+                          <img src="https://elartevisualblog.files.wordpress.com/2016/09/visualweb.jpg"></img>
+                        </div> <!-- cd-timeline-content -->
+                      </div> <!-- cd-timeline-block -->
+
+                    </div>
+                  </div>
+                </div>
+              </li>
+              
+            </ul>
+          </div>
+
+
         </div>
-      </footer>
-      <!-- End of Footer -->
+      </div>
 
     </div>
-    <!-- End of Content Wrapper -->
+    <!-- /.container-fluid -->
+
+  </div>
+  <!-- End of Main Content -->
+
+  <!-- Footer -->
+  <footer class="sticky-footer bg-white">
+    <div class="container my-auto">
+      <div class="copyright text-center my-auto">
+        <span>Copyright &copy; TechBoys 2020</span>
+      </div>
+    </div>
+  </footer>
+  <!-- End of Footer -->
+
+  </div>
+  <!-- End of Content Wrapper -->
 
   </div>
   <!-- End of Page Wrapper -->
@@ -217,19 +230,19 @@
   </a>
 
   <!-- Logout Modal-->
-  <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+    aria-hidden="true">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+          <h5 class="modal-title" id="exampleModalLabel">¿Seguro que deseas Salir?</h5>
           <button class="close" type="button" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">×</span>
           </button>
         </div>
-        <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
+
         <div class="modal-footer">
           <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancelar</button>
-          <a class="btn btn-primary"  id="salir" href="../index.html">Cerrar</a>
+          <a class="btn btn-primary" id="salir" href="../index.html">Cerrar</a>
         </div>
       </div>
     </div>
@@ -254,9 +267,10 @@
 
   <!-- Custom scripts for all pages-->
   <script src="js/sb-admin-2.js"></script>
-  
   <script src="../js/Constantes.js"></script>
-  <script src="../js/TicketDescriptionEmpresa.js"></script>
+  <script src="../js/TicketDescriptionAdmin.js"></script>
+
+
 
 </body>
 
