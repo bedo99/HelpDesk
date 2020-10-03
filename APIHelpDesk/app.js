@@ -10,13 +10,14 @@ app.use(bodyParser.json());
 // parse requests of content-type: application/x-www-form-urlencoded
 app.use(bodyParser.urlencoded({ extended: false }));
 
-
-
-
+// simple route
+app.get("/", (req, res) => {
+  res.json({ message: "Welcome to bezkoder application." });
+});
 
 require("./app/routes/usuario.routes.js")(app);
 
-// app.post("/registroUsuario", (req, res) => {
+// app.post("/registroUsuario", s(req, res) => {
 //     console.warn();
 // });
 // set port, listen for requests

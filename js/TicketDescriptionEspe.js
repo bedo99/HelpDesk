@@ -97,6 +97,7 @@ docRef.get()
         }
         
         dropdown.innerHTML = html;
+        Obteneradjutno(doc.data().Adjunto);
 
         var docRefU = db.collection('Usuarios').doc(doc.data().IdSolicitante)
         docRefU.get()
@@ -107,44 +108,7 @@ docRef.get()
             console.log("Error getting documents: ", error);
         });
 
-        var s = doc.data().Adjunto.split(".");
-        if(s[1] == "mp4"){
-          storage.ref().child(doc.data().Adjunto).getDownloadURL().then((url) => {
-          
-            
-            var video = document.getElementById('myvideo');
-            video.src = url;
-  
-          }).catch(function(error) {
-            // Handle any errors
-          });
-        }
-        else if(s[1] == "mp3" || s[1] == "mpeg" || s[1] == "amr"){
-          storage.ref().child(doc.data().Adjunto).getDownloadURL().then((url) => {
-          
-            
-            var audio = document.getElementById('myaudio');
-            audio.src = url;
-  
-          }).catch(function(error) {
-            // Handle any errors
-          });
-        }
-        else if(s[1] == "jpg" || s[1] == "png" || s[1] == "jpeg"){
-          storage.ref().child(doc.data().Adjunto).getDownloadURL().then((url) => {
-          
-            
-            var img = document.getElementById('myimg');
-            img.src = url;
-  
-          }).catch(function(error) {
-            // Handle any errors
-          });
-        }
         
-
-        
-
         
     }
 }).catch((error) => {
@@ -203,3 +167,60 @@ btnCambios.addEventListener('click', (e)=>{
       }
 
 });
+
+let html3 = '';
+const Obteneradjutno = (data) => {
+  var s = data.split(".");
+        if(s[1].toLowerCase()  == "mp4"){
+          storage.ref().child(data).getDownloadURL().then((url) => {
+          
+            
+            var video = document.getElementById('Adjunto');
+            const v = 
+            `
+            <h2>Adjuntos</h2>
+            <video src="${url}" width="320"  height="240" controls></video>
+            `;
+            html3 += v;
+            video.innerHTML = html3;
+  
+          }).catch(function(error) {
+            // Handle any errors
+          });
+        }
+        else if(s[1].toLowerCase()  == "mp3" || s[1].toLowerCase()  == "mpeg"){
+          storage.ref().child(data).getDownloadURL().then((url) => {
+          
+            
+            var Audio = document.getElementById('Adjunto');
+            const audio = 
+            `
+            <h2>Adjuntos</h2>
+            <audio src="${url}" controls></audio>
+            `;
+            html3 += audio;
+            Audio.innerHTML = html3;
+  
+          }).catch(function(error) {
+            // Handle any errors
+          });
+        }
+        else if(s[1].toLowerCase()  == "jpg" || s[1].toLowerCase()  == "png" || s[1].toLowerCase()  == "jpeg"){
+          storage.ref().child(data).getDownloadURL().then((url) => {
+          
+            var image = document.getElementById('Adjunto');
+            const imagen = 
+            `
+            <h2>Adjuntos</h2>
+            <img src="${url}"></img>
+            `;
+            html3 += imagen;
+            image.innerHTML = html3;
+            
+            
+  
+          }).catch(function(error) {
+            // Handle any errors
+          });
+        }
+}

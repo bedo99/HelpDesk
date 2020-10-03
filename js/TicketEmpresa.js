@@ -364,6 +364,8 @@ btnCrearTarea.addEventListener('click',(e) => {
     IdUsuarioEspecialista: "",
     PinDepartamento: "SDep",
     Adjunto: StorageRef.fullPath
+  }).then((e) =>{
+    return location.reload();
   });
 
 });

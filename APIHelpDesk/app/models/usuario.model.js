@@ -24,7 +24,9 @@ Usuario.create = (nuevoUsuario, resultado) => {
         console.log("Usuario Registrado Correctamente", { res });
         resultado(null, { res });
     } )
-}
+};
+
+
 
 Usuario.login = (existenteUsuario, resultado) =>{
     sql.query(`CALL login ('${existenteUsuario.Correo}', '${existenteUsuario.Contrasena}');`,(err, res) =>{
