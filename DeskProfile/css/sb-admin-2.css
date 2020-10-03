@@ -11267,7 +11267,16 @@ body.sidebar-toggled footer.sticky-footer {
   font-weight: 500;
 }
 
+.dataCatalogoDelete{
+  margin-left: 10%;
+  margin-top: 0%;
+  margin-bottom: 0%;
+}
 
+.buttonCrear{
+  margin-top: 10px;
+  margin-bottom: 25px;
+}
 
 .modal.modal-right .modal-dialog{max-width:380px;min-height:calc(100vh - 0)}
 .modal.modal-right.show .modal-dialog{transform:translate(0,0)}

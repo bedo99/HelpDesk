@@ -175,7 +175,7 @@ form.sign-up-form {
 
 .imaget{
     width: 40%;
-    height: 80%;
+    height: 40%;
     transition: transform 1.1s ease-in-out;
     transition-delay: 0.4s;
 }

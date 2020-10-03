@@ -10,4 +10,4 @@ module.exports = app => {
         usuario.login(req, res);
     });
   
-  };
+};

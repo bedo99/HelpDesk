@@ -27,13 +27,6 @@ formaingresar.addEventListener('submit',(e)=>{
         }
     }).then(response => {
         
-<<<<<<< HEAD
-    }).catch( err => {
-        localStorage.setItem("DatosUsuario","");
-        formaingresar.querySelector('.error').innerHTML = mensajeError(err.code);
-    });
-    
-=======
         let usuario = response.data.res[0][0];
         sessionStorage.setItem("userSesion", JSON.stringify(usuario));
         switch(usuario.IdTipoUsuario){
@@ -49,7 +42,6 @@ formaingresar.addEventListener('submit',(e)=>{
         }
         formaingresar.reset();  
     });      
->>>>>>> ed4a700d1a381907ada3c1affb54b99aca4c3227
 });
 
 const formaregistrate = document.getElementById('sign-up-form');
@@ -57,41 +49,6 @@ const formaregistrate = document.getElementById('sign-up-form');
 formaregistrate.addEventListener('submit',(e)=>{
     e.preventDefault();
 
-<<<<<<< HEAD
-    const nombreUsuario = formaregistrate['rnombre'].value;
-    const nombreEmpresa = formaregistrate['rnombreEmpresa'].value;
-    const email = formaregistrate['remail'].value;
-    const password = formaregistrate['rpassword'].value;
-    const tel = formaregistrate['rtelefono'].value;
-    console.log(tel,email,password,nombreUsuario,nombreEmpresa);
-    
-    
-
-});
-
-
-function mensajeError(codigo) {
-
-    let mensaje = '';
-
-    switch(codigo) {
-        case 'auth/wrong-password':
-          mensaje = 'Su contraseña no es correcta';
-          break;
-        case 'auth/user-not-found':
-            mensaje = 'El usuario no existe o el correo no esta registrado';
-            break;
-        case 'auth/weak-password':
-            mensaje = 'Contraseña débil debe tener al menos 6 caracteres';
-            break;
-        default:
-            mensaje = 'Ocurrió un error al ingresar con este usuario';
-      }
-    return mensaje;
-  }
-
-  
-=======
     const name = formaregistrate['rnombre'].value;
     const email = formaregistrate['remail'].value;
     const password = formaregistrate['rpassword'].value;
@@ -118,4 +75,3 @@ function mensajeError(codigo) {
     });
 
 });
->>>>>>> ed4a700d1a381907ada3c1affb54b99aca4c3227
