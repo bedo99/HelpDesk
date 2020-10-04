@@ -28,3 +28,26 @@ exports.create = (req, res) => {
         });
     }
 };
+
+
+exports.obtenerporCreador = (req, res) => {
+    if (!req.body) {
+        res.status(400).send({
+            message: "Content can not be empty!"
+        });
+    } else {
+        // Create a Customer
+        const ticket = new Ticket({
+            IdUsuario_Creador: req.body.IdUsuario_Creador
+        });
+
+        Ticket.obtenerporCreador(ticket, (err, data) => {
+            if (err)
+                res.status(500).send({
+                    message:
+                        err.message || "Error al obtener tickets"
+                });
+            else res.status(200).send(data.res[0]);
+        });
+    }
+};

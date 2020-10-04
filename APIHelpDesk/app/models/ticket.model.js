@@ -27,5 +27,17 @@ Ticket.create = (nuevoTicket, resultado) => {
     } )
 };
 
+Ticket.obtenerporCreador = (Ticket, resultado) => {
+    sql.query(`CALL AllTicketByUsuarioCreador (${Ticket.IdUsuario_Creador});`,(err, res) =>{
+        if(err){
+            console.log("error: ", err);
+            resultado(err, null);
+            return;
+        }
+        console.log("Tickets obtenidos correctamente", { res });
+        resultado(null, { res });
+    } )
+};
+
 
 module.exports = Ticket;

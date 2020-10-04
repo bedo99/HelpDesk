@@ -5,5 +5,8 @@ module.exports = app => {
         ticket.create(req, res);
     });
 
+    app.post("/obtenerTicketsporCreador", (req, res) => {
+        ticket.obtenerporCreador(req, res);
+    });
   
 };
