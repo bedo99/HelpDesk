@@ -249,10 +249,8 @@ const obtieneTickets = (data) => {
 
 salir.addEventListener('click', (e) => {
   e.preventDefault();
-  auth.signOut().then(() => {
-    sessionStorage.clear();
-    return window.document.location = '../index.html';
-  });
+  sessionStorage.clear();
+  return window.document.location = '../index.html';
 
 });
 

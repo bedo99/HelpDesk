@@ -162,3 +162,22 @@ $$
 DELIMITER ;
 
 CALL `techboys_helpdesk`.`AllTicketByEstatusYUsuarioCreador`(2,1);
+
+
+
+
+/*TE CARGA TODOS LOS TICKETS DE UN SOLO ESTATUS , DEL USUARIO_CREADOR*/
+DELIMITER $$
+USE `techboys_helpdesk`$$
+CREATE PROCEDURE `InsertarTicket` (
+IN _NombreTicket varchar(45),
+IN _DescripcionTicket varchar(45),
+IN _ArchivoAdjuntoTicket varchar(150)
+)
+BEGIN
+SELECT * FROM ticket WHERE IdUsuario_Creador = _IdUsuario_Creador AND EstatusTicket = _EstatusTicket;
+END
+$$
+DELIMITER ;
+
+CALL `techboys_helpdesk`.`AllTicketByEstatusYUsuarioCreador`(2,1);
