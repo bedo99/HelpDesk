@@ -71,6 +71,8 @@ CALL `techboys_helpdesk`.`TicketBYId`(3);
 
 
 
+
+
 /*TE CARGA TODOS LOS TICKETS DEL USUARIO_ESPECIALISTA POR MEDIO DEL ID ESPECIALISTA*/
 DELIMITER $$
 USE `techboys_helpdesk`$$

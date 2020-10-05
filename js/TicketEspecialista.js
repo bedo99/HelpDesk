@@ -2,6 +2,12 @@ const usuario = document.querySelector('#CorreoEspecialista');
 const ListaTicketsCard = document.querySelector('#ListaTicketsCard');
 const rowsTabla = document.querySelector('#dataTableEspecialista');
 
+let usuarioSession = JSON.parse(sessionStorage.getItem("userSesion"));
+if (!usuarioSession) {
+  window.document.location = '../index.html';
+}
+usuario.innerHTML = usuarioSession.NombreUsuario;
+
 auth.onAuthStateChanged( user =>{
 
     if(user){
@@ -268,10 +274,9 @@ const obtieneTickets = (data) =>{
 
  salir.addEventListener('click', (e)=>{
     e.preventDefault();
-    auth.signOut().then(()=>{
-        localStorage.clear();
-        return window.document.location = '../index.html';
-    });
+    localStorage.clear();
+    return window.document.location = '../index.html';
+
 
 });
 

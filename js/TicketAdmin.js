@@ -2,34 +2,19 @@ const usuario = document.querySelector('#CorreoEspecialista');
 const rowsTabla = document.querySelector('#dataTableAdmin');
 var rowtableadmin='';
 
-auth.onAuthStateChanged( user =>{
+let usuarioSession = JSON.parse(sessionStorage.getItem("userSesion"));
+if (!usuarioSession) {
+  window.document.location = '../index.html';
+}
+usuario.innerHTML = "Administrador : " + usuarioSession.NombreUsuario;
 
-    if(user){
-        
-        localStorage.setItem("idU",user.uid);
-        usuario.innerHTML = "Administrador : " + user.email;
-
-        db.collection('Tickets').where('IdUsuarioEspecialista', '==', "")
-        .where('Estatus', '==', 0)
-        .get()
-        .then((querySnapshot) => {
-          obtieneTickets(querySnapshot.docs);
-        })
-        .catch((error) => {
-          console.log("Error getting documents: ", error);
-        });
-
-    }
-    else{
-        console.log('Usuario salió');
-        obtieneTickets([]);
-    }
-
+axios({
+  method: 'get',
+  url: 'http://localhost:3000/obtenerTicketsPendientes/'
+}).then(response => {
+  console.warn(response.data);
+  obtieneTickets(response.data);
 });
-
-
-var mistorage = window.localStorage;
-console.log(mistorage);
 
 const obtieneTickets = (data) =>{
     
@@ -41,23 +26,23 @@ const obtieneTickets = (data) =>{
         
         data.forEach(ticket => {
 
-                switch(ticket.data().Estatus){
-                  case 0:
+                switch(ticket.EstatusTicket){
+                  case 1:
                     Estatusword = '<td class="text-primary">Pendiente</td>';
                     break;
-                  case 1:
+                  case 2:
                     Estatusword = '<td class="text-success">Abierto</td>';
                     break;
-                  case 2:
+                  case 3:
                     Estatusword = '<td class="text-warning">En Proceso</td>';
                     break;
-                  case 3:
+                  case 4:
                     Estatusword = '<td class="text-danger">Finalizado</td>';
                     break;
-                  case 4:
+                  case 5:
                     Estatusword = '<td class="text-verify">Verificado</td>';
                     break;
-                  case 5:
+                  case 6:
                     Estatusword = '<td class="text-dark">Terminado</td>';
                     break;
                   default:
@@ -65,11 +50,11 @@ const obtieneTickets = (data) =>{
                 }
             
             rowtableadmin = `
-            <tr onclick='Ticketview("${ticket.id}")'>
-              <td>${ticket.data().NombreT}</td>
-              <td>${ticket.data().PinDepartamento}</td>
-              <td>${ticket.data().Categoria}</td>
-              <td>${ticket.data().SubCat}</td>
+            <tr onclick='Ticketview("${ticket.IdTicket}")'>
+              <td>${ticket.NombreTicket}</td>
+              <td>${ticket.PinDepartamento ? ticket.PinDepartamento : "Sin Departamento" }</td>
+              <td>${ticket.Categoria ? ticket.Categoria : "Sin Categoria"}</td>
+              <td>${ticket.SubCat ? ticket.SubCat : "Sin Subcategoria"}</td>
               ${Estatusword}
             </tr>
             `;
@@ -89,15 +74,13 @@ const obtieneTickets = (data) =>{
 
 salir.addEventListener('click', (e)=>{
     e.preventDefault();
-    auth.signOut().then(()=>{
-        localStorage.clear();
-        return window.document.location = '../index.html';
-    });
+    sessionStorage.clear();
+    return window.document.location = '../index.html';
 
 });
 
 function Ticketview(ticketid){
-  localStorage.setItem("Ticketview",ticketid);
+  sessionStorage.setItem("Ticketview",ticketid);
   window.document.location = './TicketDescriptionAdmin.html';
 }
 

@@ -15,6 +15,19 @@ if (!usuarioSession) {
 usuario.innerHTML = usuarioSession.NombreUsuario;
 
 
+axios({
+  method: 'post',
+  url: 'http://localhost:3000/obtenerTicketsporCreador/',
+  data: {
+    IdUsuario_Creador: usuarioSession.IdUsuario
+  }
+}).then(response => {
+  console.warn(response.data);
+  obtieneTickets(response.data);
+});
+
+
+
 const obtieneTickets = (data) => {
   if (data.length) {
 
@@ -30,28 +43,28 @@ const obtieneTickets = (data) => {
 
     data.forEach(ticket => {
 
-      switch (ticket.data().Estatus) {
-        case 0:
+      switch (ticket.EstatusTicket) {
+        case 1:
           contadorP++;
           Estatusword = '<td class="text-primary">Pendiente</td>';
           break;
-        case 1:
+        case 2:
           contadorA++;
           Estatusword = '<td class="text-success">Abierto</td>';
           break;
-        case 2:
+        case 3:
           contadorE++;
           Estatusword = '<td class="text-warning">En Proceso</td>';
           break;
-        case 3:
+        case 4:
           contadorF++;
           Estatusword = '<td class="text-danger">Finalizado</td>';
           break;
-        case 4:
+        case 5:
           contadorV++;
           Estatusword = '<td class="text-verify">Verificado</td>';
           break;
-        case 5:
+        case 6:
           contadorT++;
           Estatusword = '<td class="text-dark">Terminado</td>';
           break;
@@ -60,9 +73,9 @@ const obtieneTickets = (data) => {
       }
 
       const rowtableespecialista = `
-            <tr onclick='Ticketview("${ticket.id}")'>
-              <td>${ticket.data().NombreT}</td>
-              <td>${ticket.data().DescripcionT}</td>
+            <tr onclick='Ticketview("${ticket.IdTicket}")'>
+              <td>${ticket.NombreTicket}</td>
+              <td>${ticket.DescripcionTicket}</td>
               ${Estatusword}
             </tr>
             `;
@@ -288,22 +301,22 @@ const obtieneTicketsFiltro = (data, estatus) => {
     data.forEach(ticket => {
 
       switch (estatus) {
-        case 0:
+        case 1:
           Estatusword = '<td class="text-primary">Pendiente</td>';
           break;
-        case 1:
+        case 2:
           Estatusword = '<td class="text-success">Abierto</td>';
           break;
-        case 2:
+        case 3:
           Estatusword = '<td class="text-warning">En Proceso</td>';
           break;
-        case 3:
+        case 4:
           Estatusword = '<td class="text-danger">Finalizado</td>';
           break;
-        case 4:
+        case 5:
           Estatusword = '<td class="text-verify">Verificado</td>';
           break;
-        case 5:
+        case 6:
           Estatusword = '<td class="text-dark">Terminado</td>';
           break;
         default:
@@ -371,7 +384,6 @@ btnCrearTarea.addEventListener('click', (e) => {
 FileButton.addEventListener('change', (e) => {
 
   file = e.target.files[0];
-
 
 });
 
