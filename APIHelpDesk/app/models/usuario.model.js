@@ -41,4 +41,17 @@ Usuario.login = (existenteUsuario, resultado) =>{
 }
 
 
+
+Usuario.obtenerEspecialistas = (resultado) =>{
+    sql.query(`CALL obtenerEspecialistasActivos;`,(err, res) =>{
+        if(err){
+            console.log("error: ", err);
+            resultado(err, null);
+            return;
+        }
+        console.log("Login Realizado Correctamente", { res });
+        resultado(null, { res });
+    } )
+}
+
 module.exports = Usuario;

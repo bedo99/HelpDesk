@@ -48,6 +48,17 @@ exports.login = (req, res) => {
             else res.status(200).send(data);
         });
     }
+} 
 
+
+exports.obtenerEspecialistas = (req, res) => {
+    Usuario.obtenerEspecialistas((err, data) => {
+        if (err)
+            res.status(500).send({
+                message:
+                    err.message || "Error al obtener especialistas"
+            });
+        else res.status(200).send(data);
+    });
 
 } 

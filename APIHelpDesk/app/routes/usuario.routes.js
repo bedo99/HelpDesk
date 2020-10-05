@@ -10,4 +10,9 @@ module.exports = app => {
     app.post("/loginUsuario", (req, res) => {
         usuario.login(req, res);
     });  
+
+
+    app.get("/obtenerEspecialistas", (req, res) => {
+        usuario.obtenerEspecialistas(req, res);
+    });  
 };
