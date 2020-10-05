@@ -30,10 +30,10 @@ formaingresar.addEventListener('submit', (e) => {
         let usuario = response.data.res[0][0];
         sessionStorage.setItem("userSesion", JSON.stringify(usuario));
         switch (usuario.IdTipoUsuario) {
-            case 1:
+            case 2:
                 window.document.location = 'DeskProfile/Especialista.html';
                 break;
-            case 2:
+            case 1:
                 window.document.location = 'DeskProfile/Admin.html';
                 break;
             case 3:

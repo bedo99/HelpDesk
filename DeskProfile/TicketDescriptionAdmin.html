@@ -153,10 +153,10 @@
                     </thead>
                     <tbody>
                       <tr>
-                        <td>08/08/2017</td>
-                        <td>Aqui Va el Nombre De la persona que creo el Ticket</td>
-                        <td>Gerardowindu</td>
-                        <td><span class="text-primary">Pendiente</span></td>
+                        <td id="TicketfechaEmpezado">08/08/2017</td>
+                        <td id="ticketCreador">Aqui Va el Nombre De la persona que creo el Ticket</td>
+                        <td id="ticketEspecialista">Gerardowindu</td>
+                        <td id="ticketStatus"><span class="text-primary">Pendiente</span></td>
                       </tr>
                     </tbody>
                   </table>
@@ -244,11 +244,7 @@
                           data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                           Especialista
                         </button>
-                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                          <a class="dropdown-item text-dark">Soporte Movil</a>
-                          <a class="dropdown-item text-dark">Soporte Equipo de Computo</a>
-                          <a class="dropdown-item text-dark">Redes</a>
-                          <a class="dropdown-item text-dark">Servidores</a>
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton" id="selectp">
                         </div>
                       </div>
 
@@ -310,6 +306,8 @@
       </div>
     </div>
   </div>
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
 
   <!-- The core Firebase JS SDK is always required and must be listed first -->
   <script src="https://www.gstatic.com/firebasejs/7.14.2/firebase-app.js"></script>
